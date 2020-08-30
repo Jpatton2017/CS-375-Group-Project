@@ -54,6 +54,16 @@ class Calendar extends React.Component {
 
     return <div className="days row">{days}</div>;
   }
+  
+  showEvent(day, array){
+	if (array.includes(day)){ 
+		return true;
+	}
+	else{
+		return false;
+	}
+  }
+
 
   renderCells() {
     const { currentMonth, selectedDate } = this.state;
@@ -78,10 +88,11 @@ class Calendar extends React.Component {
             className={`col cell ${
               !isSameMonth(day, monthStart)
                 ? "disabled"
-                : isSameDay(day, selectedDate) ? "selected" : ""
+                : isSameDay(day, selectedDate) ? "selected" :""	
             }`}
             key={day}
-            onClick={() => this.onDateClick(parse(cloneDay))}
+            onClick={() => this.onDateClick(parse(cloneDay,'MM/DD/YYYY',
+  new Date()))}
           >
             <span className="number">{formattedDate}</span>
             <span className="bg">{formattedDate}</span>
