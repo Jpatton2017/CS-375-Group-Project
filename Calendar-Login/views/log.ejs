@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Login</title>
+  </head>
+  <body>
+    <h1>Login</h1>
+    <ul>
+    <% if (messages.success) { %>
+      <li><%= messages.success %></li>
+      <% } %>
+    </ul>
+    <ul>
+      <% if (messages.error) { %>
+        <li><%= messages.error %></li>
+        <% } %>
+      </ul>
+    <form method="POST" action="/login" id="login" class="login-group">
+        <p>Username</p>
+        <input type="text" name="username" id="username" placeholder="Enter Username" required>
+        <p>Password</p>
+        <input type="password" name="password" id="password" placeholder="Enter Password" required>
+        <input type="submit" name="" value="Login">
+        <a href="/register">Not registered? Register here</a>
+    </form>
+  </body>
+</html>
