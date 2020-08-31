@@ -102,7 +102,12 @@ class Calendar extends React.Component {
   onDateClick = day => {
     this.setState({
       selectedDate: day
+
     });
+    // TODO Add a line that triggers the pop-up
+    // TODO Determine what code in the pop-up folder is redundant and needs to be deleted
+      // Both the popup folder and the calendar folder are full React apps,
+      // but we only need the core React infrastructure of one.
   };
 
   nextMonth = () => {
