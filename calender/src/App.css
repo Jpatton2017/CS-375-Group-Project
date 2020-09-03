@@ -176,6 +176,12 @@ main {
   border-image-slice: 1;
 }
 
+.calendar .body .event {
+  border-right: 10px solid transparent;
+  border-image: linear-gradient(45deg, #1a8fff 0%, #ff0000 40%);
+  border-image-slice:1;
+}
+
 .calendar .body .row {
   border-bottom: 1px solid var(--border-color);
 }

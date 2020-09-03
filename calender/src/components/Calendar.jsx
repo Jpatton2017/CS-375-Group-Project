@@ -54,6 +54,16 @@ class Calendar extends React.Component {
 
     return <div className="days row">{days}</div>;
   }
+  
+  showEvent(day, array){
+	if (array.includes(day)){ 
+		return true;
+	}
+	else{
+		return false;
+	}
+  }
+
 
   renderCells() {
     const { currentMonth, selectedDate } = this.state;
@@ -78,10 +88,11 @@ class Calendar extends React.Component {
             className={`col cell ${
               !isSameMonth(day, monthStart)
                 ? "disabled"
-                : isSameDay(day, selectedDate) ? "selected" : ""
+                : isSameDay(day, selectedDate) ? "selected" :""	
             }`}
             key={day}
-            onClick={() => this.onDateClick(parse(cloneDay))}
+            onClick={() => this.onDateClick(parse(cloneDay,'MM/DD/YYYY',
+  new Date()))}
           >
             <span className="number">{formattedDate}</span>
             <span className="bg">{formattedDate}</span>
@@ -102,12 +113,7 @@ class Calendar extends React.Component {
   onDateClick = day => {
     this.setState({
       selectedDate: day
-
     });
-    // TODO Add a line that triggers the pop-up
-    // TODO Determine what code in the pop-up folder is redundant and needs to be deleted
-      // Both the popup folder and the calendar folder are full React apps,
-      // but we only need the core React infrastructure of one.
   };
 
   nextMonth = () => {
