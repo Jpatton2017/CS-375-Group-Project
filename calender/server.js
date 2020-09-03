@@ -29,39 +29,38 @@ app.post('/add', function (req, res) {
 	let description = req.body.description
 	let startDate = req.body.startDate
 	let endDate = req.body.endDate
-	let startTime = req.body.startTime
-	let endTime = req.body.endTime
 	console.log(body);
 	if (
         !body.hasOwnProperty("Event") ||
         !body.hasOwnProperty("description") ||
         !body.hasOwnProperty("user") ||
 		!body.hasOwnProperty("startDate")||
-		!body.hasOwnProperty("endDate")||
-		!body.hasOwnProperty("startTime")||
-		!body.hasOwnProperty("endTime")
+		!body.hasOwnProperty("endDate")
     ){
 		res.status(400);	
     }
 	else if (
 		startDate == "" ||
-		endDate == "" ||
-		startTime == "" ||
-		endTime == "" 
+		endDate == "" 
 	){
-		res.status(400).send('Empty Date or Time');
-		
+		res.status(400);	
 	}
-	else{ 
+	else if (
+		new Date(endDate) < new Date(startDate)
+	){
+		res.status(400);
+	}
+	else{
+		res.status(200);
 		pool.query(
-			`INSERT INTO events(userID, event, description, startDate, endDate, startTime, endTime) 
-			VALUES($1, $2, $3, $4, $5, $6, $7)
+			`INSERT INTO events(userID, event, description, startDate, endDate) 
+			VALUES($1, $2, $3, $4, $5)
 			RETURNING *`,
-			[user, eventName, description, startDate, endDate, startTime, endTime]
+			[user, eventName, description, startDate, endDate]
 			)
 			.catch(function (error) {
 			console.log(error);
-			});		
+			});
 	}
 	 
 })
