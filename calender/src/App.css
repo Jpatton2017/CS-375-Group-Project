@@ -25,10 +25,10 @@
 
 :root {
   --main-color: #1a8fff;
-  --text-color: #777;
-  --text-color-light: #ccc;
+  --text-color: rgb(75, 73, 73);
+  --text-color-light: rgb(170, 166, 166);
   --border-color: #eee;
-  --bg-color: #f9f9f9;
+  --bg-color: #3da6fc ;
   --neutral-color: #fff;
 }
 
