@@ -1,0 +1,30 @@
+body {
+    background-image: url("/background.jpg");
+}
+
+
+h1{
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 40px;
+}
+
+p{
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 20px;
+    color: #fb2525;
+    
+}
+
+a:hover{
+    cursor: pointer;
+    color: #bff3f7;
+}
+
