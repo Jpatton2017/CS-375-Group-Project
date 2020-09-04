@@ -63,9 +63,6 @@ class App extends React.Component {
 			<input type="submit" value="Add event to Calendar" id="submit" onClick={getInput}/>
 			<br />	
 		</form>
-		<p> 
-		brrrrr
-		</p>
 		</div>
 		
     );
